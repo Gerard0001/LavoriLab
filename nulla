@@ -1,1 +1,70 @@
+#include <stdio.h>
 
+int main () {
+	
+	int vettore[10];
+	int dimensione = 10;
+	
+	inizializzaVettore(vettore, dimensione);
+	
+	printf("vettore non ordinato: ");
+	stampaVettore(vettore, dimensione);
+		
+	ordinaVettore(vettore, dimensione);
+	
+	printf("vettore ordinato: ");
+	stampaVettore(vettore, dimensione);
+
+	return 0;
+	
+}
+
+void inizializzaVettore (int vettore[], int dimensione) {
+	
+	int i;
+	int valoriIniziali[] =  {45, 3 ,346, 23, 63, 57, 68, 11, 35, 99};
+
+	for ( i = 0; i < dimensione; i++) {
+		
+		vettore[i] = valoriIniziali[i];
+		
+	}
+}
+
+void stampaVettore (int vettore[], int dimensione) {
+
+	int i;
+	
+	for (i = 0; i < dimensione; i++) {
+		
+		printf("%d ", vettore[i]);
+		
+	}
+	
+	printf("\n");
+	
+}
+
+void ordinaVettore(int vettore[], int dimensione) {
+	
+    int i, scambiato = 1;
+    
+    while (scambiato) {
+    	
+        scambiato = 0;
+        
+        for ( i = 0; i < dimensione - 1; i++) {
+        	
+            if (vettore[i] > vettore[i + 1]) {
+            	
+                vettore[i] = vettore[i] + vettore[i + 1];
+                
+                vettore[i + 1] = vettore[i] - vettore[i + 1];
+                
+                vettore[i] = vettore[i] - vettore[i + 1];
+                
+                scambiato = 1;
+            }
+        }
+    }
+}
